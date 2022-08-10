@@ -23,7 +23,7 @@
 
 @media screen and (max-width: 351px) {
     .profile {
-        width: 88.12vw;;
+        width: 88.12vw;
         flex-direction: column;
         align-self: center;
         margin: 42px 0 36px;

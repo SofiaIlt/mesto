@@ -19,8 +19,6 @@ function openForm() {
     profile.style.opacity = "0.5";
     elements.style.opacity = "0.5";
     footer.style.opacity = "0.5";
-    editButton.classList.add('disabled');
-    addButton.classList.add('disabled');
 }
 
 function safeForm() {
@@ -38,15 +36,20 @@ function closeForm() {
     profile.style.opacity = "";
     elements.style.opacity = "";
     footer.style.opacity = "";
-    editButton.classList.remove('disabled');
-    addButton.classList.remove('disabled');
 }
 
-function like() {
-    likeButton.classList.add('active');
+function like(btn) {
+    if (btn.target.classList.contains('element__like-button')) {
+        if (btn.target.classList.contains('active')) {
+            btn.target.classList.remove('active');
+        }
+        else {
+            btn.target.classList.add('active');
+        }
+    }
 }
 
 editButton.addEventListener('click', openForm);
 safeButton.addEventListener('click', safeForm);
 closeButton.addEventListener('click', closeForm);
-likeButton.addEventListener('click', like);
+elements.addEventListener('click', like);

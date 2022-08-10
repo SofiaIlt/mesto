@@ -1,0 +1,17 @@
+.form__position {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    width: 430px;
+    height: 330px;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 555px) {
+    .form__position {
+        width: 282px;
+        height: 322px;
+        border-radius: 10px;
+    }
+}

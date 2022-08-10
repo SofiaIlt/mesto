@@ -1,0 +1,19 @@
+.content {
+    max-width: 880px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 351px) and (max-width: 890px) {
+    .content {
+        width: 90vw;
+    }
+}
+
+@media screen and (max-width: 351px) {
+    .content {
+        width: 88.12vw;
+    }
+}

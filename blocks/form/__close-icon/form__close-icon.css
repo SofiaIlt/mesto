@@ -1,0 +1,27 @@
+.form__close-icon {
+    position: absolute;
+    border: none;
+    right: -32px;
+    top: -32px;
+    margin: 0;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    background-color: transparent;
+    background-image: url(../../../images/close-icon.svg);
+}
+
+.form__close-icon:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 555px) {
+    .form__close-icon {
+        right: 0;
+        top: -36px;
+        width: 20px;
+        height: 20px;
+        background-image: url(../../../images/small_close-icon.svg);
+    }
+}

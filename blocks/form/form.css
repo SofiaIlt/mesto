@@ -1,0 +1,7 @@
+.form {
+    display: none;
+    position: fixed;
+    top: 155px;
+    align-self: center;
+    z-index: 2;
+}

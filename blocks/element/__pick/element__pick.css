@@ -1,0 +1,6 @@
+.element__pick {
+    display: flex;
+    width: 246px;
+    margin: 23px 0 0 21px;
+    justify-content: space-between;
+}

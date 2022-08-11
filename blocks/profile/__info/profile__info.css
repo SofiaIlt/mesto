@@ -3,7 +3,6 @@
     display: grid;
     grid-template-columns: 312px 24px;
     grid-template-rows: repeat(2, auto);
-    align-items: center;
     margin: 0 244px 0 0;
     align-items: baseline;
 }

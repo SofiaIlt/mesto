@@ -4,15 +4,8 @@
     align-self: center;
 }
 
-@media screen and (min-width: 321px) and (max-width: 890px) {
-    .footer {
-        width: 90vw;
-    }
-}
-
 @media screen and (max-width: 320px) {
     .footer {
-        max-width: 282px;
-        width: 88.12vw;
+        width: 282px;
     }
 }

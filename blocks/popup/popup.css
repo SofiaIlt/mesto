@@ -1,0 +1,9 @@
+.popup {
+    position: fixed;
+    height:200%;
+    width:100%;
+    overflow:hidden;
+    display: none;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.5);
+}

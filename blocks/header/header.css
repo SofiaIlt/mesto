@@ -6,14 +6,8 @@
     border-bottom: 1px solid rgba(84, 84, 84, 0.7);
 }
 
-@media screen and (min-width: 351px) and (max-width: 890px) {
+@media screen and (max-width: 321px) {
     .header {
-        width: 90vw;
-    }
-}
-
-@media screen and (max-width: 351px) {
-    .header {
-        width: 100vw;
+        width: 100%;
     }
 }

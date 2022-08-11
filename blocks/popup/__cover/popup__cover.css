@@ -1,0 +1,9 @@
+.popup__cover {
+    display: none;
+    position: fixed;
+    z-index: 3;
+    justify-content: center;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

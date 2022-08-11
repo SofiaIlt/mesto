@@ -1,10 +1,9 @@
 .profile__name {
     grid-row: 1;
     grid-column: 1;
-    margin: 0 0 16px 0;
+    margin: 0;
     padding: 0;
     width: 294px;
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
     font-size: 42px;
@@ -25,7 +24,6 @@
         text-align: center;
         font-size: 27px;
         line-height: 33px;
-        margin: 0 0 14px 0;
         width: 189px;
     }
 }

@@ -17,19 +17,20 @@
 /*content*/
 @import url(../blocks/content/content.css);
 
+/*popup*/
+@import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/__close-icon/popup__close-icon.css);
+@import url(../blocks/popup/__position/popup__position.css);
+@import url(../blocks/popup/__title/popup__title.css);
+@import url(../blocks/popup/__cover/popup__cover.css);
+
 /*form*/
 @import url(../blocks/form/form.css);
-@import url(../blocks/form/__close-icon/form__close-icon.css);
-@import url(../blocks/form/__position/form__position.css);
-@import url(../blocks/form/__title/form__title.css);
-@import url(../blocks/form/__field/form__field.css);
-@import url(../blocks/form/__name/form__name.css);
-@import url(../blocks/form/__job/form__job.css);
+@import url(../blocks/form/__text/form__text.css);
 @import url(../blocks/form/__button/form__button.css);
 
 /*profile*/
 @import url(../blocks/profile/profile.css);
-@import url(../blocks/profile/__block/profile__block.css);
 @import url(../blocks/profile/__image/profile__image.css);
 @import url(../blocks/profile/__info/profile__info.css);
 @import url(../blocks/profile/__name/profile__name.css);
@@ -46,9 +47,7 @@
 @import url(../blocks/element/__pick/element__pick.css);
 @import url(../blocks/element/__name/element__name.css);
 @import url(../blocks/element/__like-button/element__like-button.css);
-
-/*active*/
-@import url(../blocks/active/active.css);
+@import url(../blocks/element/__like-button/_active/element__like-button_active.css);
 
 /*footer*/
 @import url(../blocks/footer/footer.css);

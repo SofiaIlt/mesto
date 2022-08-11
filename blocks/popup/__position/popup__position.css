@@ -1,4 +1,4 @@
-.form__position {
+.popup__position {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width: 555px) {
-    .form__position {
+    .popup__position {
         width: 282px;
         height: 322px;
         border-radius: 10px;

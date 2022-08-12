@@ -1,7 +1,7 @@
 .element__pick {
-    display: flex;
-    width: 246px;
+    display: grid;
     margin: 23px 0 0 21px;
-    justify-content: space-between;
     align-items: baseline;
+    grid-template-columns: 224px 22px;
+    width: 246px;
 }

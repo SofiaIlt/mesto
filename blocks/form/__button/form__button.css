@@ -6,7 +6,7 @@
     text-align: center;
     color: #FFFFFF;
     margin: 48px 0 0;
-    padding: 14px 124px 18px 125px;
+    padding: 14px 124px 14px 125px;
     border-radius: 2px;
     border: none;
     background-color: #000000;
@@ -17,12 +17,12 @@
     cursor: pointer;
 }
 
-@media screen and (max-width: 555px) {
+@media screen and (max-width: 768px) {
     .form__button {
-        padding: 14px 82px 14px 82px;
-        margin: 45px 0 0;
-        font-style: normal;
-        font-weight: 400;
+        padding-right: 82px;
+        padding-bottom: 14px;
+        padding-left: 82px;
+        margin-top: 45px;
         font-size: 14px;
         line-height: 17px;
         text-align: center;

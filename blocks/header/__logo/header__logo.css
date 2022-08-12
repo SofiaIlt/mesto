@@ -7,9 +7,14 @@
     background-repeat: no-repeat;
 }
 
-@media screen and (max-width: 351px) {
+@media screen and (max-width: 1024px) {
     .header__logo {
-        margin: 28px 0 31.6px 27px;
+        margin: 28px 0 31px 27px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .header__logo {
         background-size: 104px 24px;
         height: 24px;
     }

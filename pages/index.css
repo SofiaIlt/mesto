@@ -1,8 +1,8 @@
 /*normalize*/
-@import url(../vendor/normalize.css);
+@import url(../vendors/normalize.css);
 
 /*fonts*/
-@import url(../fonts/fonts.css);
+@import url(../vendors/fonts/fonts.css);
 
 /*body*/
 @import url(../blocks/body/body.css);
@@ -20,9 +20,9 @@
 /*popup*/
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__close-icon/popup__close-icon.css);
-@import url(../blocks/popup/__position/popup__position.css);
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__cover/popup__cover.css);
+@import url(../blocks/popup/__active/popup__active.css);
 
 /*form*/
 @import url(../blocks/form/form.css);

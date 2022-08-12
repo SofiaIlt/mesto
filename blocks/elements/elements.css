@@ -9,7 +9,7 @@
     align-self: center;
 }
 
-@media screen and (max-width: 890px) {
+@media screen and (max-width: 1024px) {
     .elements {
         grid-template-columns: repeat(2, auto);
         grid-template-rows: repeat(3, auto);
@@ -17,10 +17,9 @@
     }
 }
 
-@media screen and (max-width: 651px) {
+@media screen and (max-width: 768px) {
     .elements {
         grid-template-columns: repeat(1, auto);
         grid-template-rows: repeat(6, auto);
-        justify-content: space-around;
     }
 }

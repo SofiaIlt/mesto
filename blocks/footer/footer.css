@@ -4,6 +4,12 @@
     align-self: center;
 }
 
+@media screen and (max-width: 1024px) {
+    .footer {
+        width: 88%;
+    }
+}
+
 @media screen and (max-width: 320px) {
     .footer {
         width: 282px;

@@ -5,32 +5,32 @@ let editButton = profile.querySelector('.profile__edit-button');
 let addButton = profile.querySelector('.profile__add-button');
 let formEdit = document.querySelector('.popup__cover');
 let formCover = document.querySelector('.popup');
-let formName = formEdit.querySelector('input[name="form__name"]');
-let formJob = formEdit.querySelector('input[name="form__job"]');
-let safeButton = formEdit.querySelector('.form__button');
+let formName = formEdit.querySelector('.form__name');
+let formJob = formEdit.querySelector('.form__job');
+let safeButton = formCover.querySelector('.form');
 let closeButton = formEdit.querySelector('.popup__close-icon');
-let header = document.querySelector('.header');
 let elements = document.querySelector('.elements');
 let likeButton = elements.querySelector('.element__like-button');
-let footer = document.querySelector('.footer');
 
 function openForm() {
-    formEdit.style.display = "flex";
-    formCover.style.display = "block";
+    formCover.classList.add('popup__active');
 }
 
-function safeForm() {
+function safeForm(evt) {
+    evt.preventDefault();
     if (formName.value != '') {
         profileName.textContent = formName.value;
+        formName.placeholder = formName.value;
     }
     if (formJob.value != '') {
         profileJob.textContent = formJob.value;
+        formJob.placeholder = formJob.value;
     }
+    formCover.classList.remove('popup__active');
 }
 
 function closeForm() {
-    formEdit.style.display = "none";
-    formCover.style.display = "none";
+    formCover.classList.remove('popup__active');
 }
 
 function like(btn) {
@@ -45,6 +45,6 @@ function like(btn) {
 }
 
 editButton.addEventListener('click', openForm);
-safeButton.addEventListener('click', safeForm);
+safeButton.addEventListener('submit', safeForm);
 closeButton.addEventListener('click', closeForm);
 elements.addEventListener('click', like);

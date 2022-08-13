@@ -4,12 +4,11 @@ let profileJob = profile.querySelector('.profile__job');
 let editButton = profile.querySelector('.profile__edit-button');
 let formEdit = document.querySelector('.popup__cover');
 let popup = document.querySelector('.popup');
-let formName = formEdit.querySelector('.form__text_name');
-let formJob = formEdit.querySelector('.form__text_job');
+let formName = formEdit.querySelector('.form__text_field-name');
+let formJob = formEdit.querySelector('.form__text_field-job');
 let form = popup.querySelector('.form');
 let closeButton = formEdit.querySelector('.popup__close-icon');
 let elements = document.querySelector('.elements');
-let likeButton = elements.querySelector('.element__like-button');
 
 function openPopup() {
     popup.classList.add('popup_active');

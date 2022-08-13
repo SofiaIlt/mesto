@@ -2,35 +2,34 @@ let profile = document.querySelector('.profile');
 let profileName = profile.querySelector('.profile__name');
 let profileJob = profile.querySelector('.profile__job');
 let editButton = profile.querySelector('.profile__edit-button');
-let addButton = profile.querySelector('.profile__add-button');
 let formEdit = document.querySelector('.popup__cover');
-let formCover = document.querySelector('.popup');
-let formName = formEdit.querySelector('.form__name');
-let formJob = formEdit.querySelector('.form__job');
-let safeButton = formCover.querySelector('.form');
+let popup = document.querySelector('.popup');
+let formName = formEdit.querySelector('.form__text_name');
+let formJob = formEdit.querySelector('.form__text_job');
+let form = popup.querySelector('.form');
 let closeButton = formEdit.querySelector('.popup__close-icon');
 let elements = document.querySelector('.elements');
 let likeButton = elements.querySelector('.element__like-button');
 
-function openForm() {
-    formCover.classList.add('popup__active');
+function openPopup() {
+    popup.classList.add('popup_active');
+    formName.value = profileName.textContent;
+    formJob.value = profileJob.textContent;
 }
 
 function safeForm(evt) {
     evt.preventDefault();
     if (formName.value != '') {
         profileName.textContent = formName.value;
-        formName.placeholder = formName.value;
     }
     if (formJob.value != '') {
         profileJob.textContent = formJob.value;
-        formJob.placeholder = formJob.value;
     }
-    formCover.classList.remove('popup__active');
+    closePopup();
 }
 
-function closeForm() {
-    formCover.classList.remove('popup__active');
+function closePopup() {
+    popup.classList.remove('popup_active');
 }
 
 function like(btn) {
@@ -44,7 +43,7 @@ function like(btn) {
     }
 }
 
-editButton.addEventListener('click', openForm);
-safeButton.addEventListener('submit', safeForm);
-closeButton.addEventListener('click', closeForm);
+editButton.addEventListener('click', openPopup);
+form.addEventListener('submit', safeForm);
+closeButton.addEventListener('click', closePopup);
 elements.addEventListener('click', like);

@@ -1,11 +1,12 @@
 .popup {
     position: fixed;
+    overflow: hidden;
     height:100%;
     width:100%;
     top: 0;
     left: 0;
-    overflow:hidden;
-    display: none;
     z-index: 2;
     background-color: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
 }

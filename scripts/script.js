@@ -2,21 +2,76 @@ let profile = document.querySelector('.profile');
 let profileName = profile.querySelector('.profile__name');
 let profileJob = profile.querySelector('.profile__job');
 let editButton = profile.querySelector('.profile__edit-button');
-let formEdit = document.querySelector('.popup__cover');
-let popup = document.querySelector('.popup');
-let formName = formEdit.querySelector('.form__text_field_name');
-let formJob = formEdit.querySelector('.form__text_field_job');
-let form = popup.querySelector('.form');
-let closeButton = formEdit.querySelector('.popup__close-icon');
+let addButton =  profile.querySelector('.profile__add-button');
+
 let elements = document.querySelector('.elements');
 
-function openPopup() {
-    popup.classList.add('popup_active');
-    formName.value = profileName.textContent;
-    formJob.value = profileJob.textContent;
+let page = document.querySelector('.page');
+
+let popupEditProfile = document.querySelector('.popup__edit_profile');
+let formEditProfile = popupEditProfile.querySelector('.form__edit_profile');
+let formName = document.querySelector('.form__text_field_name');
+let formJob = document.querySelector('.form__text_field_job');
+let closeButtonEditProfile = popupEditProfile.querySelector('.popup__close-icon_edit_profile');
+
+let popupAddImage = document.querySelector('.popup__add_image');
+let formAddImage = popupAddImage.querySelector('.form__add_image');
+let closeButtonAddImage = popupAddImage.querySelector('.popup__close-icon_add_image');
+let formTitle = document.querySelector('.form__text_field_title');
+let formLink = document.querySelector('.form__text_field_link');
+
+let elementPhoto = document.querySelectorAll('.element__photo');
+let elementName = document.querySelectorAll('.element__name');
+
+const elementTemplate = document.querySelector('#element').content;
+const popupOpenImageTemplate = document.querySelector('#popup__open_image').content;
+
+const initialCards = [
+    {
+      name: 'Архыз',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+    },
+    {
+      name: 'Челябинская область',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    },
+    {
+      name: 'Иваново',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    },
+    {
+      name: 'Камчатка',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    },
+    {
+      name: 'Холмогорский район',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    },
+    {
+      name: 'Байкал',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+    }
+];
+
+for (let i = 0; i < elementPhoto.length; i += 1) {
+    elementPhoto[i].src = initialCards[i].link;
+    elementPhoto[i].alt = initialCards[i].name;
+    elementName[i].textContent = initialCards[i].name;
 }
 
-function safeForm(evt) {
+function openPopupEdit() {
+    popupEditProfile.classList.add('popup_active');
+    formName.value = profileName.textContent;
+    formJob.value = profileJob.textContent;
+    popupEditProfile.classList.remove('popup_hidden');
+}
+
+function openPopupAdd() {
+    popupAddImage.classList.add('popup_active');
+    popupAddImage.classList.remove('popup_hidden');
+}
+
+function safeFormEdit(evt) {
     evt.preventDefault();
     if (formName.value != '') {
         profileName.textContent = formName.value;
@@ -24,25 +79,58 @@ function safeForm(evt) {
     if (formJob.value != '') {
         profileJob.textContent = formJob.value;
     }
-    closePopup();
+    closePopupEdit();
 }
 
-function closePopup() {
-    popup.classList.remove('popup_active');
+function safeFormAdd(evt) {
+    evt.preventDefault();
+    const elementElement = elementTemplate.querySelector('.element').cloneNode(true);
+    if (formLink.value != '' && formTitle.value != '') {
+        elementElement.querySelector('.element__photo').src = formLink.value;
+        elementElement.querySelector('.element__photo').alt = formTitle.value;
+        elementElement.querySelector('.element__name').textContent = formTitle.value;
+        elements.prepend(elementElement);
+    }
+    closePopupAdd();
 }
 
-function like(btn) {
+function closePopupEdit() {
+    popupEditProfile.classList.remove('popup_active');
+    popupEditProfile.classList.add('popup_hidden');
+}
+
+function closePopupAdd() {
+    popupAddImage.classList.remove('popup_active');
+    popupAddImage.classList.add('popup_hidden');
+}
+
+function likeOrDeleteOrOpenImage(btn) {
     if (btn.target.classList.contains('element__like-button')) {
-        if (btn.target.classList.contains('element__like-button_active')) {
-            btn.target.classList.remove('element__like-button_active');
-        }
-        else {
-            btn.target.classList.add('element__like-button_active');
-        }
+        btn.target.classList.toggle('element__like-button_active');
+    }
+    if (btn.target.classList.contains('element__delete-button')) {
+        btn.target.parentElement.remove();
+    }
+    if (btn.target.classList.contains('element__photo')) {
+        const popupOpenImageElement = popupOpenImageTemplate.querySelector('.popup__open_image').cloneNode(true);
+        popupOpenImageElement.querySelector('.element__photo1').src = btn.target.src;
+        popupOpenImageElement.querySelector('.element__name').textContent = btn.target.alt;
+        page.append(popupOpenImageElement);
+        let popupOpenImage = document.querySelector('.popup__open_image');
+        popupOpenImage.classList.add('popup_active');
+        let closeButtonOpenImage = document.querySelector('.popup__close-icon_open_image');
+        closeButtonOpenImage.addEventListener('click', () => {
+            popupOpenImage.classList.remove('popup_active');
+            popupOpenImage.classList.add('popup_hidden');
+            popupOpenImage.remove();
+        });
     }
 }
 
-editButton.addEventListener('click', openPopup);
-form.addEventListener('submit', safeForm);
-closeButton.addEventListener('click', closePopup);
-elements.addEventListener('click', like);
+editButton.addEventListener('click', openPopupEdit);
+addButton.addEventListener('click', openPopupAdd);
+formEditProfile.addEventListener('submit', safeFormEdit);
+formAddImage.addEventListener('submit', safeFormAdd);
+closeButtonEditProfile.addEventListener('click', closePopupEdit);
+closeButtonAddImage.addEventListener('click', closePopupAdd);
+elements.addEventListener('click', likeOrDeleteOrOpenImage);

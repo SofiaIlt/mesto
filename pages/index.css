@@ -24,6 +24,10 @@
 @import url(../blocks/popup/__cover/popup__cover.css);
 @import url(../blocks/popup/_active/popup_active.css);
 @import url(../blocks/popup/_hidden/popup_hidden.css);
+@import url(../blocks/popup/__photo/popup__photo.css);
+@import url(../blocks/popup/__open_image/popup__open_image.css);
+@import url(../blocks/popup/__cover_open_image/popup__cover_open_image.css);
+@import url(../blocks/popup/__name/popup__name.css);
 
 /*form*/
 @import url(../blocks/form/form.css);
@@ -54,26 +58,3 @@
 /*footer*/
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
-
-/*.element__photo_active {
-    position: fixed;
-    height:100%;
-    width:100%;
-    top: 0;
-    left: 0;
-    overflow:hidden;
-    display: none;
-    z-index: 2;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-@media screen and (max-width: 768px) {
-    .popup__cover {
-        border-radius: 10px;
-        padding: 25px 22px;
-    }
-}*/
-
-.popup__open_image_cover {
-    padding: 0;
-}

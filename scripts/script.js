@@ -113,16 +113,20 @@ function likeOrDeleteOrOpenImage(btn) {
     }
     if (btn.target.classList.contains('element__photo')) {
         const popupOpenImageElement = popupOpenImageTemplate.querySelector('.popup__open_image').cloneNode(true);
-        popupOpenImageElement.querySelector('.element__photo1').src = btn.target.src;
-        popupOpenImageElement.querySelector('.element__name').textContent = btn.target.alt;
+        popupOpenImageElement.querySelector('.popup__photo').src = btn.target.src;
+        popupOpenImageElement.querySelector('.popup__name').textContent = btn.target.alt;
         page.append(popupOpenImageElement);
         let popupOpenImage = document.querySelector('.popup__open_image');
-        popupOpenImage.classList.add('popup_active');
+        setTimeout(()=>{
+            popupOpenImage.classList.add('popup_active');
+        },1);
         let closeButtonOpenImage = document.querySelector('.popup__close-icon_open_image');
         closeButtonOpenImage.addEventListener('click', () => {
             popupOpenImage.classList.remove('popup_active');
             popupOpenImage.classList.add('popup_hidden');
-            popupOpenImage.remove();
+            setTimeout(()=>{
+                popupOpenImage.remove();
+            },1000)
         });
     }
 }

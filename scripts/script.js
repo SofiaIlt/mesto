@@ -8,14 +8,14 @@ let elements = document.querySelector('.elements');
 
 let page = document.querySelector('.page');
 
-let popupEditProfile = document.querySelector('.popup__edit_profile');
-let formEditProfile = popupEditProfile.querySelector('.form__edit_profile');
+let popupEditProfile = document.querySelector('.popup_edit_profile');
+let formEditProfile = popupEditProfile.querySelector('.form_edit_profile');
 let formName = document.querySelector('.form__text_field_name');
 let formJob = document.querySelector('.form__text_field_job');
 let closeButtonEditProfile = popupEditProfile.querySelector('.popup__close-icon_edit_profile');
 
-let popupAddImage = document.querySelector('.popup__add_image');
-let formAddImage = popupAddImage.querySelector('.form__add_image');
+let popupAddImage = document.querySelector('.popup_add_image');
+let formAddImage = popupAddImage.querySelector('.form_add_image');
 let closeButtonAddImage = popupAddImage.querySelector('.popup__close-icon_add_image');
 let formTitle = document.querySelector('.form__text_field_title');
 let formLink = document.querySelector('.form__text_field_link');

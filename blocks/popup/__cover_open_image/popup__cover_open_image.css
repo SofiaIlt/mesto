@@ -1,11 +1,12 @@
 .popup__cover_open_image {
-    display: flex;
-    position: fixed;
-    z-index: 3;
-    justify-content: center;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    flex-direction: column;
+    background-color: transparent;
     padding: 0;
+    border-radius: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .popup__cover_open_image {
+        border-radius: 0;
+        padding: 0;
+    }
 }

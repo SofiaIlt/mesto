@@ -1,4 +1,4 @@
-.popup__cover_open_image {
+.popup_cover_open_image {
     display: flex;
     position: fixed;
     z-index: 3;

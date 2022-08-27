@@ -17,7 +17,7 @@ const formAddImage = popupAddImage.querySelector('.form_add_image');
 const formTitle = document.querySelector('.form__text_field_title');
 const formLink = document.querySelector('.form__text_field_link');
 
-const popupOpenImage = document.querySelector('.popup__open_image');
+const popupOpenImage = document.querySelector('.popup_open_image');
 const buttonCloseOpenImage = document.querySelector('.popup__close-icon_open_image');
 const popupPhoto = document.querySelector('.popup__photo');
 const popupName = document.querySelector('.popup__name');

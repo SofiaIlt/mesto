@@ -17,9 +17,12 @@ const formAddImage = popupAddImage.querySelector('.form_add_image');
 const formTitle = document.querySelector('.form__text_field_title');
 const formLink = document.querySelector('.form__text_field_link');
 
-const page = document.querySelector('.page');
+const popupOpenImage = document.querySelector('.popup__open_image');
+const buttonCloseOpenImage = document.querySelector('.popup__close-icon_open_image');
+const popupPhoto = document.querySelector('.popup__photo');
+const popupName = document.querySelector('.popup__name');
 
-const popupOpenImageTemplate = document.querySelector('#popup__open_image').content;
+const page = document.querySelector('.page');
 
 const elements = document.querySelector('.elements');
 
@@ -68,26 +71,18 @@ const elementCreate = function(titleValue, linkValue) {
 
     const elementDeleteButton = elementElement.querySelector('.element__delete-button');
     elementDeleteButton.addEventListener('click', (evt) => {
-        evt.target.parentElement.remove();
+        evt.target.closest('.element').remove();
     });
 
-    const photoPreview = elementElement.querySelector('.element__photo');
-    photoPreview.addEventListener('click', (btn) => {
-        const popupOpenImageElement = popupOpenImageTemplate.querySelector('.popup__open_image').cloneNode(true);
-        popupOpenImageElement.querySelector('.popup__photo').src = btn.target.src;
-        popupOpenImageElement.querySelector('.popup__name').textContent = btn.target.alt;
-        page.append(popupOpenImageElement);
-        const popupOpenImage = document.querySelector('.popup__open_image');
-        setTimeout(()=>{
-            handleOpenPopup(popupOpenImage);
-        },1);
-        const buttonCloseOpenImage = document.querySelector('.popup__close-icon_open_image');
-        buttonCloseOpenImage.addEventListener('click', () => {
-            handleClosePopup(popupOpenImage);
-            setTimeout(()=>{
-                popupOpenImage.remove();
-            },1000);
-        });
+    elementPhoto.addEventListener('click', (btn) => {
+        popupPhoto.src = btn.target.src;
+        popupPhoto.alt = btn.target.alt;
+        popupName.textContent = btn.target.alt;
+        openPopup(popupOpenImage);
+    });
+
+    buttonCloseOpenImage.addEventListener('click', () => {
+        closePopup(popupOpenImage);
     });
 
     return elementElement;
@@ -97,14 +92,18 @@ initialCards.forEach((item) => {
     elements.append(elementCreate(item.name, item.link));
 });
 
-function handleOpenPopup(popup) {
+function openPopup(popup) {
     popup.classList.add('popup_active');
     popup.classList.remove('popup_hidden');
-    formName.value = profileName.textContent;
-    formJob.value = profileJob.textContent;
 };
 
-function handleClosePopup(popup) {
+function openPopupEditProfile() {
+    openPopup(popupEditProfile);
+    formName.value = profileName.textContent;
+    formJob.value = profileJob.textContent;
+}
+
+function closePopup(popup) {
     popup.classList.remove('popup_active');
     popup.classList.add('popup_hidden');
 };
@@ -113,25 +112,22 @@ function handleSafeFormEdit(evt) {
     evt.preventDefault();
     profileName.textContent = formName.value;
     profileJob.textContent = formJob.value;
-    handleClosePopup(popupEditProfile);
+    closePopup(popupEditProfile);
 };
 
 function handleSafeFormAdd(evt) {
     evt.preventDefault();
+    renderCard();
+    closePopup(popupAddImage);
+};
+
+function renderCard() {
     elements.prepend(elementCreate(formTitle.value, formLink.value));
-    handleClosePopup(popupAddImage);
-};
-  
-function handlePreviewPicture (data) {
-    // устанавливаем название, подпись и альтернативный текст карточки
-    // открываем модальное окно универсальной функций openPopup(popup)
-        
-};
+}
 
-
-buttonEdit.addEventListener('click', () => handleOpenPopup(popupEditProfile));
-buttonAdd.addEventListener('click', () => handleOpenPopup(popupAddImage));
-buttonCloseEditProfile.addEventListener('click', () => handleClosePopup(popupEditProfile));
-buttonCloseAddImage.addEventListener('click', () => handleClosePopup(popupAddImage));
+buttonEdit.addEventListener('click', openPopupEditProfile);
+buttonAdd.addEventListener('click', () => openPopup(popupAddImage));
+buttonCloseEditProfile.addEventListener('click', () => closePopup(popupEditProfile));
+buttonCloseAddImage.addEventListener('click', () => closePopup(popupAddImage));
 formEditProfile.addEventListener('submit', handleSafeFormEdit);
 formAddImage.addEventListener('submit', handleSafeFormAdd);

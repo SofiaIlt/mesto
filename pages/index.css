@@ -26,7 +26,7 @@
 @import url(../blocks/popup/_hidden/popup_hidden.css);
 @import url(../blocks/popup/__photo/popup__photo.css);
 @import url(../blocks/popup/_open_image/popup_open_image.css);
-@import url(../blocks/popup/__cover/__open_image/popup__cover__open_image.css);
+@import url(../blocks/popup/__cover_open_image/popup__cover_open_image.css);
 @import url(../blocks/popup/__name/popup__name.css);
 
 /*form*/

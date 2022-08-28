@@ -22,8 +22,6 @@ const buttonCloseOpenImage = document.querySelector('.popup__close-icon_open_ima
 const popupPhoto = document.querySelector('.popup__photo');
 const popupName = document.querySelector('.popup__name');
 
-const page = document.querySelector('.page');
-
 const elements = document.querySelector('.elements');
 
 const initialCards = [
@@ -81,10 +79,6 @@ const elementCreate = function(titleValue, linkValue) {
         openPopup(popupOpenImage);
     });
 
-    buttonCloseOpenImage.addEventListener('click', () => {
-        closePopup(popupOpenImage);
-    });
-
     return elementElement;
 };
 
@@ -131,3 +125,4 @@ buttonCloseEditProfile.addEventListener('click', () => closePopup(popupEditProfi
 buttonCloseAddImage.addEventListener('click', () => closePopup(popupAddImage));
 formEditProfile.addEventListener('submit', handleSafeFormEdit);
 formAddImage.addEventListener('submit', handleSafeFormAdd);
+buttonCloseOpenImage.addEventListener('click', () => closePopup(popupOpenImage));

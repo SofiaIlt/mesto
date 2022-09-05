@@ -2,7 +2,6 @@
     display: flex;
     position: fixed;
     z-index: 3;
-    justify-content: center;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -10,10 +9,13 @@
     background-color: #FFFFFF;
     border-radius: 10px;
     padding: 34px 36px 37px;
+    max-width: 358px;
+    min-height: 268px;
 }
 
 @media screen and (max-width: 768px) {
     .popup__cover {
+        min-height: 315px;
         border-radius: 10px;
         padding: 25px 22px;
     }

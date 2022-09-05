@@ -82,11 +82,11 @@ const hasInvalidInput = (inputList) => {
 //меняем класс у кнопки
 const toggleButtonState = (inputList, buttonElement, parameters) => {
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add(parameters.inactiveButtonClass);
+    //buttonElement.classList.add(parameters.inactiveButtonClass);
     buttonElement.setAttribute("disabled", "disabled");
   }
   else {
-    buttonElement.classList.remove(parameters.inactiveButtonClass);
+    //buttonElement.classList.remove(parameters.inactiveButtonClass);
     buttonElement.removeAttribute("disabled", "disabled");
   }
 };
@@ -106,7 +106,7 @@ const setEventListeners = (formElement, parameters) => {
   console.log(buttonElement);
   //изменяем класс кнопки в зависимости от валидности формы
   toggleButtonState(inputList, buttonElement);
-  //проверяем каждый импут на валидность и меняем кнопки в зависимости от этого
+  //проверяем каждый инпут на валидность и меняем кнопки в зависимости от этого
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', () => {
       checkInputValidity(formElement, inputElement, parameters);
@@ -194,6 +194,19 @@ function closePopup(popup) {
     popup.classList.add('popup_hidden');
 };
 
+//функция закрытия попапа при нажатии на esc
+function closePopupEscapeButton(evt, popup) {
+  if (evt.keyCode == 27) {
+    closePopup(popup);
+  };
+}
+
+//функция закрытия попапа при нажатии на оверлей
+function closePopupOverlayClick(evt, popup) {
+  if(evt.target.closest('.popup__cover') === null){
+    closePopup(popup);
+  }
+}
 
 //функция сохраненяет измененные данные в профиле
 function handleSafeFormEdit(evt) {
@@ -224,3 +237,15 @@ buttonCloseAddImage.addEventListener('click', () => closePopup(popupAddImage));
 formEditProfile.addEventListener('submit', handleSafeFormEdit);
 formAddImage.addEventListener('submit', handleSafeFormAdd);
 buttonCloseOpenImage.addEventListener('click', () => closePopup(popupOpenImage));
+formEditProfile.addEventListener('keydown', function(evt) {
+  closePopupEscapeButton(evt, popupEditProfile);
+});
+formAddImage.addEventListener('keydown', function(evt) {
+  closePopupEscapeButton(evt, popupAddImage);
+});
+popupEditProfile.addEventListener('click', function(evt) {
+  closePopupOverlayClick(evt, popupEditProfile);
+});
+popupAddImage.addEventListener('click', function(evt) {
+  closePopupOverlayClick(evt, popupAddImage);
+});

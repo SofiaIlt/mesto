@@ -42,9 +42,11 @@
         <div class="popup__cover">
           <button type="button" class="popup__close-icon popup__close-icon_edit_profile"></button>
           <h2 class="popup__title">Редактировать профиль</h2>
-          <form class="form form_edit_profile">
-            <input type="text" class="form__text form__text_field_name" placeholder="Имя">
-            <input type="text" class="form__text form__text_field_job" placeholder="Основная деятельность">
+          <form class="form form_edit_profile" name="form1">
+            <input type="text" class="form__text form__text_field_name" placeholder="Имя" id="name-input" minlength="2" required novalidate>
+            <span class="name-input-error"></span>
+            <input type="text" class="form__text form__text_field_job" placeholder="Основная деятельность" id="job-input" minlength="2" required novalidate>
+            <span class="job-input-error"></span>
             <button type="submit" class="form__button">Сохранить</button>
           </form>
         </div>
@@ -54,9 +56,11 @@
         <div class="popup__cover">
           <button type="button" class="popup__close-icon popup__close-icon_add_image"></button>
           <h2 class="popup__title">Новое место</h2>
-          <form class="form form_add_image">
-            <input type="text" class="form__text form__text_field_title" placeholder="Название">
-            <input type="text" class="form__text form__text_field_link" placeholder="Ссылка на картинку">
+          <form class="form form_add_image" name="form2">
+            <input type="text" class="form__text form__text_field_title" placeholder="Название" id="title-input" minlength="2" required novalidate>
+            <span class="title-input-error"></span>
+            <input type="url" class="form__text form__text_field_link" placeholder="Ссылка на картинку" id="link-input" required novalidate>
+            <span class="link-input-error"></span>
             <button type="submit" class="form__button">Сохранить</button>
           </form>
         </div>

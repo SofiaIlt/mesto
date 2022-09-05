@@ -12,7 +12,7 @@
     background-color: #000000;
 }
 
-.form__button:hover {
+.form__button:not([disabled]):hover {
     background-color: rgba(0, 0, 0, 0.8);
     cursor: pointer;
 }
